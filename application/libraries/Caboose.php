@@ -18,13 +18,13 @@ class Caboose {
 	// define the base framework components. 
 	// note that these are embedded in the project because they are obsolete bootstrap2
 	var $base = array(
-		'bootstrap' => array(
-			'css' => 'bootstrap.min.css',
-			'js' => 'bootstrap.min.js'
-		),
 		'jquery' => array(
 			'css' => '',
 			'js' => 'jquery-1.11.1.min.js'
+		),
+		'bootstrap' => array(
+			'css' => 'bootstrap.min.css',
+			'js' => 'bootstrap.min.js'
 		)
 	);
 
@@ -40,6 +40,11 @@ class Caboose {
             'js' => 'bootstrap-confirmation.js',
             'template' => 'confirm'
         ),
+		'jrating' => array(
+			'css' => 'jRating.jquery.css',
+			'js' => 'jRating.jquery.js',
+			'template' => 'jrating'
+		),
      );
     // provide for any fields they need. this should be indexed [component][field]
     var $fields = array();
@@ -113,7 +118,7 @@ class Caboose {
 
         // generate the base javascript references
         foreach ($this->base as $fundamental) {
-            $css = $fundamental['js'];
+            $js = $fundamental['js'];
             if (!empty($js)) {
                 if (is_array($js)) {
                     foreach ($js as $filename)
